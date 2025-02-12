@@ -1,8 +1,10 @@
 package entreprise;
 
-class Manager extends Employee {
-    public Manager(int id, String nom, String prenom, String email) {
-        super(id, nom, prenom, email);
+import java.sql.*;
+
+class Manager extends Employe {
+    public Manager(int id, String prenom, String nom, Date dateEntree, String email) {
+        super(id, prenom, nom, dateEntree, email);
     }
 
     public void affecterMission(Mission mission, Technicien technicien) {
