@@ -34,4 +34,4 @@ public class ConnectionBd{
         System.err.println("JDBC Driver not found: " + e.getMessage());
     }
 }
-//test
+//test2
