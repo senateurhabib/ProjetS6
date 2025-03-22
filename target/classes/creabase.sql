@@ -1,3 +1,29 @@
+DROP TABLE CompetencePersonnel;
+DROP TABLE Competence;
+DROP TABLE Personnel;
+
+CREATE TABLE Personnel (
+    idP INT PRIMARY KEY AUTO_INCREMENT,
+    prenom VARCHAR(30) NOT NULL,
+    nom VARCHAR(30) NOT NULL,
+    dateEntree DATE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL
+);
+
+CREATE TABLE Competence (
+    idC VARCHAR(10) PRIMARY KEY,
+    nomEn VARCHAR(100) NOT NULL,
+    nomFr VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE CompetencePersonnel (
+    idP INT,
+    idC VARCHAR(10),
+    PRIMARY KEY (idP, idC),
+    FOREIGN KEY (idP) REFERENCES Personnel(idP) ON DELETE CASCADE,
+    FOREIGN KEY (idC) REFERENCES Competence(idC) ON DELETE CASCADE
+);
+
 INSERT INTO Personnel ( prenom, nom, dateEntree, email) VALUES
 ('Ollie', 'Galasso', '2006-03-13', 'ollie.galasso@example.com'),
 ('Jon', 'Seastrunk', '2007-01-12', 'jon.seastrunk@example.com'),

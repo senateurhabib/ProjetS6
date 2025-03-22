@@ -20,7 +20,7 @@ public class Employe {
     private Date dateEntree;
     private String email;
     private List<Competence> competencesEmploye;
-    private static List<Employe> listeEmployes = new ArrayList<>();
+    public static List<Employe> listeEmployes = new ArrayList<>();
     
     public Employe(int id, String prenom, String nom, Date dateEntree, String email) {
         this.id = id;
@@ -31,6 +31,10 @@ public class Employe {
         this.competencesEmploye = new ArrayList<>();
     }
 
+    public int getId() {
+        return this.id;
+    }
+    
     public String getNom() {
         return this.nom;
     }

@@ -22,6 +22,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -39,13 +40,13 @@ public class Main {
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
         Employe emp = new Employe(12, "emp1", "emp2", new java.sql.Date(new Date().getTime()), "ampdk@dhdkh.com");
-        Competence comp = new Competence(12, "comp1");
+        Competence comp = new Competence("12", "comp1");
         Mission mi = new Mission(23, "desc", new java.sql.Date(new Date().getTime()), 12);
         
         Competence.getListeCompetence().add(comp);
-        Competence.getListeCompetence().add((new Competence(13, "zea")));
-        Competence.getListeCompetence().add(new Competence(12, "efgg"));
-        Competence.getListeCompetence().add(new Competence(21, "adfe"));
+        Competence.getListeCompetence().add((new Competence("13", "zea")));
+        Competence.getListeCompetence().add(new Competence("12", "efgg"));
+        Competence.getListeCompetence().add(new Competence("21", "adfe"));
         
         Employe.getListeEmploye().add(emp);
         Employe.getListeEmploye().add(new Employe(1, "e", "ce", new java.sql.Date(new Date().getTime()), "c"));
@@ -58,20 +59,20 @@ public class Main {
         Mission.getListeMission().add(new Mission(33, "ezv", new java.sql.Date(new Date().getTime()), 1));
 
         emp.getListeCompetences().add(comp);
-        emp.getListeCompetences().add(new Competence(13, "cmp"));
-        emp.getListeCompetences().add(new Competence(12, "comp1"));
-        emp.getListeCompetences().add(new Competence(21, "arah"));
-        emp.getListeCompetences().add(new Competence(45, "fr"));
-        emp.getListeCompetences().add(new Competence(13, "zd"));
-        emp.getListeCompetences().add(new Competence(12, "fe"));
-        emp.getListeCompetences().add(new Competence(21, "arefeah"));
-        emp.getListeCompetences().add(new Competence(45, "fvhh"));
+        emp.getListeCompetences().add(new Competence("13", "cmp"));
+        emp.getListeCompetences().add(new Competence("12", "comp1"));
+        emp.getListeCompetences().add(new Competence("21", "arah"));
+        emp.getListeCompetences().add(new Competence("45", "fr"));
+        emp.getListeCompetences().add(new Competence("13", "zd"));
+        emp.getListeCompetences().add(new Competence("12", "fe"));
+        emp.getListeCompetences().add(new Competence("21", "arefeah"));
+        emp.getListeCompetences().add(new Competence("45", "fvhh"));
 
         mi.getListeCompetences().add(comp);
-        mi.getListeCompetences().add(new Competence(13, "zd"));
-        mi.getListeCompetences().add(new Competence(12, "fe"));
-        mi.getListeCompetences().add(new Competence(21, "arefeah"));
-        mi.getListeCompetences().add(new Competence(45, "fvhh"));
+        mi.getListeCompetences().add(new Competence("13", "zd"));
+        mi.getListeCompetences().add(new Competence("12", "fe"));
+        mi.getListeCompetences().add(new Competence("21", "arefeah"));
+        mi.getListeCompetences().add(new Competence("45", "fvhh"));
         
         mi.getListeEmploye().add(emp);
         
@@ -83,21 +84,58 @@ public class Main {
         System.out.println("ok");
         
         
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection c = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/db_proj", "pal", "jlupexgx");
-        String query = "SELECT * FROM Personnel";
-        ArrayList<String> missions = new ArrayList<>();
-        try (Statement stmt = c.createStatement()) {
-            ResultSet rs = stmt.executeQuery(query);
+        Connection co = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/db_proj", "pal", "jlupexgx");
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        }catch (ClassNotFoundException e) {
+            System.out.println("JDBC Driver not found: " + e.getMessage());
+        }
+        
+        try (Statement stmt = co.createStatement()) {
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Personnel");
             while (rs.next()) {
-                missions.add("ID: " + rs.getInt("idM") + ", Description: " + rs.getString("description") + ", Date Début: " + rs.getDate("dateDebut") + ", Durée: " + rs.getInt("duree"));
+                Employe.getListeEmploye().add(new Employe(rs.getInt("idP"), rs.getString("prenom"), rs.getString("nom"), rs.getDate("dateEntree"), rs.getString("email")));
+            }
+            
+            rs = stmt.executeQuery("SELECT * FROM Competence");
+            while (rs.next()) {
+                Competence.getListeCompetence().add(new Competence(rs.getString("idC"), rs.getString("nomFr")));
+            }
+            
+            rs = stmt.executeQuery("SELECT * FROM CompetencePersonnel");
+            while (rs.next()) {
+                Employe employeChoisi = emp;
+                Competence competenceChoisie = comp;
+                for (Employe e : Employe.getListeEmploye()) {
+                    System.out.println(rs.getString("idP"));
+                    if (rs.getString("idP").equals(e.getId()))
+                        employeChoisi = e;
+                }
+                for (Competence c : Competence.getListeCompetence()) {
+                    System.out.println(rs.getString("idC"));
+                    if (rs.getString("idC").equals(c.getId()))
+                        competenceChoisie = c;
+                }
+                employeChoisi.getListeCompetences().add(competenceChoisie);
             }
         }catch (SQLException e) {
             System.err.println("SQL Error: " + e.getMessage());
         }
-        System.out.println("test de la base");
-        for (String mission : missions) {
-            System.out.println(mission);
+        
+        System.out.println("Liste employes");
+        for (Employe employe : Employe.getListeEmploye()) {
+            System.out.println(employe);
+        }
+        
+        System.out.println("Liste competences");
+        for (Competence competence : Competence.getListeCompetence()) {
+            System.out.println(competence);
+        }
+        
+        System.out.println("Liste competences des employes");
+        for (Employe employe : Employe.getListeEmploye()) {
+            System.out.println(employe.getListeCompetences());
         }
     }
 
