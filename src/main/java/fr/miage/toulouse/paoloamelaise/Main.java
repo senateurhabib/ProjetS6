@@ -17,6 +17,8 @@ import fr.miage.toulouse.paoloamelaise.components.Employe;
 import fr.miage.toulouse.paoloamelaise.components.Mission;
 import java.util.Date;
 import fr.miage.toulouse.paoloamelaise.components.ConnectionBd;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -80,10 +82,12 @@ public class Main {
         System.out.println(mi);
         System.out.println("ok");
         
-        ConnectionBd c = new ConnectionBd();
+        
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection c = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/db_proj", "pal", "jlupexgx");
         String query = "SELECT * FROM Personnel";
         ArrayList<String> missions = new ArrayList<>();
-        try (Statement stmt = c.getC().createStatement()) {
+        try (Statement stmt = c.createStatement()) {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 missions.add("ID: " + rs.getInt("idM") + ", Description: " + rs.getString("description") + ", Date Début: " + rs.getDate("dateDebut") + ", Durée: " + rs.getInt("duree"));
@@ -91,6 +95,7 @@ public class Main {
         }catch (SQLException e) {
             System.err.println("SQL Error: " + e.getMessage());
         }
+        System.out.println("test de la base");
         for (String mission : missions) {
             System.out.println(mission);
         }

@@ -32,7 +32,7 @@ public class ConnectionBd{
     public ConnectionBd() throws SQLException, ClassNotFoundException {
         // Load Type-4 Driver
         // MySQL Type-4 driver class
-        // Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
         // Database URL, username, and password
 
