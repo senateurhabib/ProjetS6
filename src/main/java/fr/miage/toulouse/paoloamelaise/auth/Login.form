@@ -48,7 +48,7 @@
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Pal gestion system">
+            <TitledBorder title="TalentFlow">
               <Color PropertyName="color" blue="cc" green="0" red="0" type="rgb"/>
             </TitledBorder>
           </Border>

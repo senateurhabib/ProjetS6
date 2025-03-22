@@ -9,6 +9,7 @@
  */
 package fr.miage.toulouse.paoloamelaise.components;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -16,16 +17,16 @@ public class Employe {
     private int id;
     private String prenom;
     private String nom;
-    /*private Date dateEntree;*/
+    private Date dateEntree;
     private String email;
-    public List<Competence> competencesEmploye;
+    private List<Competence> competencesEmploye;
     private static List<Employe> listeEmployes = new ArrayList<>();
     
-    public Employe(int id, String prenom, String nom, /*Date dateEntree, */String email) {
+    public Employe(int id, String prenom, String nom, Date dateEntree, String email) {
         this.id = id;
         this.prenom = prenom;
         this.nom = nom;
-        /*this.dateEntree = dateEntree;*/
+        this.dateEntree = dateEntree;
         this.email = email;
         this.competencesEmploye = new ArrayList<>();
     }
@@ -46,16 +47,8 @@ public class Employe {
         return listeEmployes;
     }
     
-    public List<Competence> getListeCompetence() {
+    public List<Competence> getListeCompetences() {
         return competencesEmploye;
-    }
-    
-    public String getCompetences() {
-        String str = "";
-        for (Competence c : this.competencesEmploye) {
-            str += c + "\n";
-        }
-        return str;
     }
 
     public void setNom(String nom) {

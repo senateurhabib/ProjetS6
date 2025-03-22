@@ -57,6 +57,9 @@ public class ConnectionBd{
 */
     }
 
+    public Connection getC() {
+        return this.connection;
+    }
 
     public void ajouterMission(String description, Date dateDebut, int duree) throws SQLException {
         String query = "INSERT INTO Mission (idM, description, dateDebut, duree) VALUES (" + description + "," + new java.sql.Date(dateDebut.getTime()) + "," + duree + ");";

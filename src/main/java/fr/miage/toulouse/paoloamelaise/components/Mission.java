@@ -19,8 +19,9 @@ public class Mission {
     private String description;
     private Date dateDebut;
     private int duree;
-    public List<Competence> competencesRequises;
-    public List<Employe> participants;
+    private int nbParticipants;
+    private List<Competence> competencesRequises;
+    private List<Employe> participants;
     private static List<Mission> listeMission = new ArrayList<>();
 
     public Mission(int id, String description, Date dateDebut, int duree) {
@@ -53,7 +54,7 @@ public class Mission {
         return duree;
     }
     
-    public List<Competence> getListeCompetence() {
+    public List<Competence> getListeCompetences() {
         return competencesRequises;
     }
     
@@ -61,7 +62,7 @@ public class Mission {
         return listeMission;
     }
 
-    List<Employe> getListeEmploye() {
+    public List<Employe> getListeEmploye() {
         return participants;
     }
 
@@ -85,4 +86,9 @@ public class Mission {
     public String toString() {
         return "ID: " + id + ", Description: " + description + ", Date Début: " + dateDebut + ", Durée: " + duree;
     }
+
+    void setNbParticipants(int nbParticipants) {
+        this.nbParticipants = nbParticipants;
+    }
+
 }

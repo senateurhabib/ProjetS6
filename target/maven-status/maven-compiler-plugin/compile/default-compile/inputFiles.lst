@@ -5,8 +5,11 @@
 /home/moi/Documents/Projets/projetjavas6/src/main/java/fr/miage/toulouse/paoloamelaise/components/Competence.java
 /home/moi/Documents/Projets/projetjavas6/src/main/java/fr/miage/toulouse/paoloamelaise/components/ConnectionBd.java
 /home/moi/Documents/Projets/projetjavas6/src/main/java/fr/miage/toulouse/paoloamelaise/components/Employe.java
+/home/moi/Documents/Projets/projetjavas6/src/main/java/fr/miage/toulouse/paoloamelaise/components/Erreur.java
 /home/moi/Documents/Projets/projetjavas6/src/main/java/fr/miage/toulouse/paoloamelaise/components/Menu.java
 /home/moi/Documents/Projets/projetjavas6/src/main/java/fr/miage/toulouse/paoloamelaise/components/Mission.java
+/home/moi/Documents/Projets/projetjavas6/src/main/java/fr/miage/toulouse/paoloamelaise/components/Tri.java
+/home/moi/Documents/Projets/projetjavas6/src/main/java/fr/miage/toulouse/paoloamelaise/trucmodifie/ComboBoxModelCompetence.java
 /home/moi/Documents/Projets/projetjavas6/src/main/java/fr/miage/toulouse/paoloamelaise/trucmodifie/ListModelCompetence.java
 /home/moi/Documents/Projets/projetjavas6/src/main/java/fr/miage/toulouse/paoloamelaise/trucmodifie/ListModelEmploye.java
 /home/moi/Documents/Projets/projetjavas6/src/main/java/fr/miage/toulouse/paoloamelaise/trucmodifie/ListModelMission.java

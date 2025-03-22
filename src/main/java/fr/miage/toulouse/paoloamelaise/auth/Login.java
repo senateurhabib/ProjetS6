@@ -30,8 +30,8 @@ public class Login extends javax.swing.JFrame {
      * Set default username and password
      */
     private void setDefaultUserName() {
-        this.userNameField.setText("pal");
-        this.passwordField.setText("gangsigns");
+        this.userNameField.setText("");
+        this.passwordField.setText("");
     }
 
     /**
@@ -53,7 +53,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         loginPanel.setBackground(new java.awt.Color(153, 153, 255));
-        loginPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pal gestion system", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13), new java.awt.Color(0, 0, 204))); // NOI18N
+        loginPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TalentFlow", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13), new java.awt.Color(0, 0, 204))); // NOI18N
         loginPanel.setForeground(new java.awt.Color(153, 153, 255));
         loginPanel.setToolTipText("");
         loginPanel.setName(""); // NOI18N
@@ -129,7 +129,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        if (!passwordField.getText().equalsIgnoreCase("gangsigns")) {
+        if (!passwordField.getText().equalsIgnoreCase("12345")) {
             userNameField.setText("");
             passwordField.setText("");
             JOptionPane.showMessageDialog(this, userNameField.getText() + " Access Denied");

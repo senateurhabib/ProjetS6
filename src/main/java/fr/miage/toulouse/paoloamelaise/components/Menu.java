@@ -4,6 +4,7 @@
  */
 package fr.miage.toulouse.paoloamelaise.components;
 
+import fr.miage.toulouse.paoloamelaise.trucmodifie.ComboBoxModelCompetence;
 import java.util.Date;
 import fr.miage.toulouse.paoloamelaise.trucmodifie.ListModelEmploye;
 import fr.miage.toulouse.paoloamelaise.trucmodifie.ListModelMission;
@@ -45,6 +46,7 @@ public class Menu extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("TalentFlow");
         setSize(new java.awt.Dimension(1920, 1080));
 
         jInternalFrame1.setVisible(true);
@@ -68,6 +70,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         jButton2.setText("Trier");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Rechercher");
 
@@ -123,6 +130,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         jButton6.setText("Trier");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Rechercher");
 
@@ -179,14 +191,14 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new AlterPersonnel(this, true, new Employe(1, "", "", "")).setVisible(true);
+        new AlterPersonnel(this, true, new Employe(-1, "", "", new java.sql.Date(new Date().getTime()), "")).setVisible(true);
         this.dispose();
         new Menu().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        new AlterMission(this, true, new Mission(1, "", new java.sql.Date(new Date().getTime()), 1)).setVisible(true);
+        new AlterMission(this, true, new Mission(-1, "", new java.sql.Date(new Date().getTime()), 1)).setVisible(true);
         this.dispose();
         new Menu().setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -208,6 +220,16 @@ public class Menu extends javax.swing.JFrame {
             new Menu().setVisible(true);
         }
     }//GEN-LAST:event_jList2MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new Tri(this, true).setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        new Tri(this, true).setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

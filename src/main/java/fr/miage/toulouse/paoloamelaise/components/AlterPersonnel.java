@@ -4,6 +4,7 @@
  */
 package fr.miage.toulouse.paoloamelaise.components;
 
+import fr.miage.toulouse.paoloamelaise.trucmodifie.ComboBoxModelCompetence;
 import fr.miage.toulouse.paoloamelaise.trucmodifie.ListModelCompetence;
 import fr.miage.toulouse.paoloamelaise.trucmodifie.ListModelEmploye;
 
@@ -91,12 +92,12 @@ public class AlterPersonnel extends javax.swing.JDialog {
 
         jList1.setBackground(new java.awt.Color(205, 155, 250));
         jList1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jList1.setModel(new ListModelCompetence(employeselectionne.getListeCompetence()));
+        jList1.setModel(new ListModelCompetence(employeselectionne.getListeCompetences()));
         jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jList1.setPreferredSize(new java.awt.Dimension(650, 452));
         jScrollPane1.setViewportView(jList1);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new ComboBoxModelCompetence(Competence.getListeCompetence()));
 
         jButton2.setText("Ajouter");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -168,10 +169,9 @@ public class AlterPersonnel extends javax.swing.JDialog {
         employeselectionne.setNom(jTextField1.getText());
         employeselectionne.setPrenom(jTextField2.getText( ));
         employeselectionne.setEmail(jTextField3.getText());
-        if (Employe.getListeEmploye().contains(employeselectionne)) {
-            this.dispose();
-        }else
+        if (!Employe.getListeEmploye().contains(employeselectionne))
             Employe.getListeEmploye().add(employeselectionne);
+        this.dispose();
         System.out.println("ok");
         for (Employe e : Employe.getListeEmploye()) {
             System.out.println(e);
@@ -179,7 +179,10 @@ public class AlterPersonnel extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
+        Competence c = (Competence)jComboBox1.getSelectedItem();
+        if (!employeselectionne.getListeCompetences().contains(c))
+            employeselectionne.getListeCompetences().add(c);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -227,7 +230,7 @@ public class AlterPersonnel extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<Competence> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
