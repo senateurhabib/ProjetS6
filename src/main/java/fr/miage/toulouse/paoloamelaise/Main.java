@@ -43,6 +43,7 @@ public class Main {
         Competence comp = new Competence("12", "comp1");
         Mission mi = new Mission(23, "desc", new java.sql.Date(new Date().getTime()), 12);
         
+        /*
         Competence.getListeCompetence().add(comp);
         Competence.getListeCompetence().add((new Competence("13", "zea")));
         Competence.getListeCompetence().add(new Competence("12", "efgg"));
@@ -52,12 +53,14 @@ public class Main {
         Employe.getListeEmploye().add(new Employe(1, "e", "ce", new java.sql.Date(new Date().getTime()), "c"));
         Employe.getListeEmploye().add(new Employe(3, "sz", "cse", new java.sql.Date(new Date().getTime()), "k"));
         Employe.getListeEmploye().add(new Employe(2, "kzk", "lj", new java.sql.Date(new Date().getTime()), "dze"));
+        */
         
         Mission.getListeMission().add(mi);
         Mission.getListeMission().add(new Mission(13, "adda", new java.sql.Date(new Date().getTime()), 23));
         Mission.getListeMission().add(new Mission(3, "azdfdff", new java.sql.Date(new Date().getTime()), 2));
         Mission.getListeMission().add(new Mission(33, "ezv", new java.sql.Date(new Date().getTime()), 1));
-
+        
+        /*
         emp.getListeCompetences().add(comp);
         emp.getListeCompetences().add(new Competence("13", "cmp"));
         emp.getListeCompetences().add(new Competence("12", "comp1"));
@@ -67,6 +70,7 @@ public class Main {
         emp.getListeCompetences().add(new Competence("12", "fe"));
         emp.getListeCompetences().add(new Competence("21", "arefeah"));
         emp.getListeCompetences().add(new Competence("45", "fvhh"));
+        */
 
         mi.getListeCompetences().add(comp);
         mi.getListeCompetences().add(new Competence("13", "zd"));
@@ -107,20 +111,29 @@ public class Main {
             while (rs.next()) {
                 Employe employeChoisi = emp;
                 Competence competenceChoisie = comp;
+                
                 for (Employe e : Employe.getListeEmploye()) {
-                    System.out.println(rs.getString("idP"));
-                    if (rs.getString("idP").equals(e.getId()))
+                    System.out.println("id:" + e.getId() + " " + rs.getInt("idP"));
+                    if (rs.getInt("idP") == (e.getId())) {
                         employeChoisi = e;
+                        break;
+                    }
                 }
                 for (Competence c : Competence.getListeCompetence()) {
-                    System.out.println(rs.getString("idC"));
-                    if (rs.getString("idC").equals(c.getId()))
+                    System.out.println("id:" + c.getId() + " " + rs.getString("idC"));
+                    if (rs.getString("idC").equals(c.getId())) {
                         competenceChoisie = c;
+                        System.out.println("true");
+                        break;
+                    }
                 }
+                
+                System.out.println(employeChoisi);
+                System.out.println(competenceChoisie);
                 employeChoisi.getListeCompetences().add(competenceChoisie);
             }
         }catch (SQLException e) {
-            System.err.println("SQL Error: " + e.getMessage());
+            System.out.println("SQL Error: " + e.getMessage());
         }
         
         System.out.println("Liste employes");
