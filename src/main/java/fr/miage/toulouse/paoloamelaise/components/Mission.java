@@ -7,7 +7,7 @@
  *
  * @author moi
  */
-package components;
+package fr.miage.toulouse.paoloamelaise.components;
 
 import java.sql.Date;
 import java.util.List;

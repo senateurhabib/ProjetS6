@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package components;
+package fr.miage.toulouse.paoloamelaise.components;
 
 import java.util.Date;
-import trucmodifie.ListModelEmploye;
-import trucmodifie.ListModelMission;
+import fr.miage.toulouse.paoloamelaise.trucmodifie.ListModelEmploye;
+import fr.miage.toulouse.paoloamelaise.trucmodifie.ListModelMission;
 
 /**
  *

@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package components;
+package fr.miage.toulouse.paoloamelaise.components;
 
-import trucmodifie.ListModelCompetence;
-import trucmodifie.ListModelEmploye;
+import fr.miage.toulouse.paoloamelaise.trucmodifie.ListModelCompetence;
+import fr.miage.toulouse.paoloamelaise.trucmodifie.ListModelEmploye;
 
 /**
  *

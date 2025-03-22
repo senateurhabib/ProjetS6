@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package trucmodifie;
+package fr.miage.toulouse.paoloamelaise.trucmodifie;
 
 /**
  *
  * @author moi
  */
 
-import components.Employe;
+import fr.miage.toulouse.paoloamelaise.components.Employe;
 import javax.swing.*;
 import javax.swing.event.ListDataListener;
 import java.util.ArrayList;

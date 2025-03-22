@@ -8,9 +8,9 @@
  * @author moi
  */
 
-package auth;
+package fr.miage.toulouse.paoloamelaise.auth;
 
-import components.Menu;
+import fr.miage.toulouse.paoloamelaise.components.Menu;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {

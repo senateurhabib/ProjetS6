@@ -8,13 +8,15 @@
  * @author moi
  */
 
+package fr.miage.toulouse.paoloamelaise;
+
 import java.sql.SQLException;
-import auth.Login;
-import components.Competence;
-import components.ConnectionBd;
-import components.Employe;
-import components.Mission;
+import fr.miage.toulouse.paoloamelaise.auth.Login;
+import fr.miage.toulouse.paoloamelaise.components.Competence;
+import fr.miage.toulouse.paoloamelaise.components.Employe;
+import fr.miage.toulouse.paoloamelaise.components.Mission;
 import java.util.Date;
+import fr.miage.toulouse.paoloamelaise.components.ConnectionBd;
 
 public class Main {
 
