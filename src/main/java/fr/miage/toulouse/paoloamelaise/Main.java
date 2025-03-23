@@ -35,6 +35,7 @@ public class Main {
 
         Login log = new Login();
         log.setVisible(true);
+        int n;
 
         Date date = new Date();
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
@@ -84,7 +85,7 @@ public class Main {
         System.out.println("ok");
         
         
-        Connection co = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/db_proj", "pal", "jlupexgx");
+        Connection co = DriverManager.getConnection("jdbc:mysql://telline.univ-tlse3.fr:1521/etupre", "mlp4907a", "1234");
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
