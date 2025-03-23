@@ -63,8 +63,7 @@ public class Main {
         Mission.getListeMission().add(new Mission(33, "ezv", new java.sql.Date(new Date().getTime()), 1));
         Mission.getListeMission().add(new Mission(34, "etv", new java.sql.Date(new Date().getTime()), 1));
         Mission.getListeMission().add(new Mission(37, "emv", new java.sql.Date(new Date().getTime()), 1));
-        Mission.getListeMission().add(new Mission(38, "emv", new java.sql.Date(new Date().getTime()), 1));
-        Mission.getListeMission().add(new Mission(39, "eyfrtmv", new java.sql.Date(new Date().getTime()), 1));
+        
         
         /*
         emp.getListeCompetences().add(comp);
