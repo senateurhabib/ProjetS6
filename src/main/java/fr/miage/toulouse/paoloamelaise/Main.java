@@ -43,6 +43,7 @@ public class Main {
         Employe emp = new Employe(12, "emp1", "emp2", new java.sql.Date(new Date().getTime()), "ampdk@dhdkh.com");
         Competence comp = new Competence("12", "comp1");
         Mission mi = new Mission(23, "desc", new java.sql.Date(new Date().getTime()), 12);
+        System.out.println("");
         
         Competence.getListeCompetence().add(comp);
         Competence.getListeCompetence().add((new Competence("13", "zea")));
