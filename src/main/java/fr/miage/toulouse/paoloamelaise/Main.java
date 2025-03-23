@@ -61,6 +61,10 @@ public class Main {
         Mission.getListeMission().add(new Mission(13, "adda", new java.sql.Date(new Date().getTime()), 23));
         Mission.getListeMission().add(new Mission(3, "azdfdff", new java.sql.Date(new Date().getTime()), 2));
         Mission.getListeMission().add(new Mission(33, "ezv", new java.sql.Date(new Date().getTime()), 1));
+        Mission.getListeMission().add(new Mission(34, "etv", new java.sql.Date(new Date().getTime()), 1));
+        Mission.getListeMission().add(new Mission(37, "emv", new java.sql.Date(new Date().getTime()), 1));
+        Mission.getListeMission().add(new Mission(38, "emv", new java.sql.Date(new Date().getTime()), 1));
+        Mission.getListeMission().add(new Mission(39, "eyfrtmv", new java.sql.Date(new Date().getTime()), 1));
         
         /*
         emp.getListeCompetences().add(comp);
@@ -87,6 +91,7 @@ public class Main {
         System.out.println(comp);
         System.out.println(emp);
         System.out.println(mi);
+        System.out.println("");
         System.out.println("ok");
         
         
