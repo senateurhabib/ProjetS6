@@ -22,51 +22,7 @@ public class Employe {
     private List<Competence> competencesEmploye;
     public static List<Employe> listeEmployes = new ArrayList<>();
     
-    public Employe(int id, String prenom, String nom, Date dateEntree, String email) {
-        this.id = id;
-        this.prenom = prenom;
-        this.nom = nom;
-        this.dateEntree = dateEntree;
-        this.email = email;
-        this.competencesEmploye = new ArrayList<>();
-    }
-
-    public int getId() {
-        return this.id;
-    }
     
-    public String getNom() {
-        return this.nom;
-    }
-
-    public String getPrenom() {
-        return this.prenom;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public static List<Employe> getListeEmploye() {
-        return listeEmployes;
-    }
-    
-    public List<Competence> getListeCompetences() {
-        return competencesEmploye;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     @Override
     public String toString() {
         return "ID: " + this.id + ", Prénom: " + this.prenom + ", Nom: " + this.nom + /*", Date entrée dans l'entreprise: " + this.dateEntree*/  ", E-mail: " + this.email;
