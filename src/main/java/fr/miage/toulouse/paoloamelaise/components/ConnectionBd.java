@@ -117,7 +117,47 @@ public class ConnectionBd{
         }
     }
 
-    
+    public void afficherEmployes() throws SQLException {
+        String query = "SELECT * FROM Employe";
+        ArrayList<String> employes = new ArrayList<>();
+        try (Statement st = connection.createStatement()) {
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+                employes.add("ID: " + rs.getInt("idP") + ", Prénom: " + rs.getString("prenom") + ", Nom: " + rs.getString("nom") + ", Date entrée dans l'entreprise: " + rs.getDate("dateEntree") + ", E-mail: " + rs.getString("email"));
+            }
+        }catch (SQLException e) {
+            System.err.println("SQL Error: " + e.getMessage());
+        }
+        for (String employe : employes) {
+            System.out.println(employe);
+        }
+    }
+
+    public void ajouterCompetence(int id, String nouveauNom, String nouveauPrenom, String nouvelEmail) throws SQLException {
+        String query = "INSERT INTO Competence (idC, nom, prenom, email) VALUES (" + id + "," + nouveauNom + "," + nouveauPrenom + "," + nouvelEmail + ");";
+        try (Statement st = connection.createStatement()) {
+            int rows = st.executeUpdate(query);
+            System.out.println(rows);
+        }catch (SQLException e) {
+            System.err.println("SQL Error: " + e.getMessage());
+        }
+    }
+
+    public void afficherCompetences() throws SQLException {
+        String query = "SELECT * FROM Competence";
+        ArrayList<String> competences = new ArrayList<>();
+        try (Statement st = connection.createStatement()) {
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+                competences.add("ID: " + rs.getInt("idC") + ", Nom en anglais: " + rs.getString("nomEn") + ", Nom en français: " + rs.getString("nomFr"));
+            }
+        }catch (SQLException e) {
+            System.err.println("SQL Error: " + e.getMessage());
+        }
+        for (String competence : competences) {
+            System.out.println(competence);
+        }
+    }
 }
 
 /*
